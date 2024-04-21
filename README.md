@@ -1,0 +1,2 @@
+# SmartStudy
+Flashcards using AI
