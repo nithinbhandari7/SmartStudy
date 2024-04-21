@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#flashcard-sets {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    position: relative;
+}
+
+form {
+    display: inline;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+form {
+    text-align: center;
+}
+
+button[type="submit"] {
+    margin: 0 auto;
+    display: block;
+}
+
+#flashcard-sets li {
+    font-size: 18px;
+}
+
+#flashcard-sets form:nth-of-type(1) {
+    margin-right: 10px;
+    position: absolute;
+    bottom: 5px;
+    right: 80px;
+}
+
+#flashcard-sets form:nth-of-type(2) {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}
+
+.create-ai-set {
+    margin-left: 200px;
+}
+
+.create-own-set {
+    margin-bottom: 20px;
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
+.prompt {
+    text-align: left;
+    margin-left: 455px;
+    width: 487px;
+    height: 50px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.number {
+    text-align: left;
+    margin-left: 40px;
+    width: 70px;
+    height: 50px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Study</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <header>
+        <h1>Smart Study</h1>
+    </header>
+    
+    <!-- Display existing flashcard sets -->
+    <div id="flashcard-sets">
+        <ul>
+            <% flashcardSets.forEach((flashcardSet, index) => { %>
+                <li>
+                    <%= flashcardSet.name %>
+
+                    <form action="/display-data" method="GET">
+                        <input type="hidden" name="setId" value="<%= flashcardSet._id %>">
+                        <input type="hidden" name="index" value="<%= index %>">
+                        <button type="submit">Edit</button>
+                    </form>
+                    <form action="/delete-set/<%= flashcardSet._id %>" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+
+    <!-- Button to create a new flashcard set -->
+    <form action="/create-ai-set" method="POST">
+        <input class = "prompt" type="text" id="prompt" name="prompt" placeholder="Topic of flashcards">
+        <input class = "number" type="text" id="number" name="number" placeholder="#">
+        <button class="create-ai-set" type="submit">Create AI Set</button>
+    </form>
+    <div class="divider"></div>
+    <form action="/create-set" method="POST">
+        <button class="create-own-set" type="submit">Create Own Set</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

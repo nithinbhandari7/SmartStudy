@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard Set Display</title>
+    <link rel="stylesheet" href="display.css">
+</head>
+<body>
+    <header>
+        <h1><%= flashcardSet.name %></h1>
+    </header>
+    <main>
+        <form action="/modify-set-name/<%= flashcardSet._id %>" method="POST">
+            <label for="newName">Set Name:</label>
+            <input class = "name-text" type="text" id="newName" name="newName" placeholder="Enter set name" value="<%= flashcardSet.name %>">
+            <button class="update-name" type="submit">Update Name</button>
+        </form>
+    </main>
+    <div id="flashcards">
+        <form action="/create-flashcard/<%= flashcardSet._id %>" method="POST">
+            <label for="front" >Front:</label>
+            <input type="text" id="front" name="front">
+            <label for="back">Back:</label>
+            <input type="text" id="back" name="back">
+            <button class="create-flashcard" type="submit">Create Flashcard</button>
+        </form>
+    </div>
+    <div id="flashcards">
+        <h1>Flashcards</h1>
+        <ul>
+            <% flashcardSet.flashcards.forEach(flashcard => { %>
+                <li>
+                    <label class="display" for="display" >Front: <%= flashcard.front %> <br> Back: <%= flashcard.back %></label>
+                    <form action="/delete-flashcard/<%= flashcard._id %>/<%= flashcardSet._id %>" method="POST">
+                        <input type="hidden" id="front" name="<%= flashcard.front %>">
+                        <input type="hidden" id="back" name="<%= flashcard.back %>">
+                        <button class="delete" type="submit">Delete</button>
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+    <div>
+        <form action="/new-card/<%= flashcardSet._id %>" method="POST">
+            <button class="review" type="submit">Review</button>
+        </form>
+        <br>
+        <button class="return-home" onclick="window.location.href = '/';">Return Home</button>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= flashcardSet.name %></title>
+    <link rel="stylesheet" href="review.css">
+</head>
+<body>
+    <header>
+        <h1><%= flashcardSet.name %></h1>
+    </header>
+    <div class="flashcard-button">
+        <form action="/flip/<%= flashcardSet._id %>/<%= encodeURIComponent(card) %>" method="POST">
+            <button class="big-button" type="submit"><%= card %></button>
+        </form>
+
+        <form action="/new-card/<%= flashcardSet._id %>" method="POST">
+            <button class="next" type="submit"><img src="/images/newArrow.jpeg" alt="buttonpng" border="0" style="width: 75px; height: auto; position: absolute; top: 350px;" /></button>
+        </form>
+    </div>
+    <form action="/display-data" method="GET">
+        <input type="hidden" name="setId" value="<%= flashcardSet._id %>">
+        <button class="return" type="submit">Return</button>
+    </form>
+</body>
+</html>
